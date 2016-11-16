@@ -5,7 +5,7 @@
 
     while first <= last and not found:
     	midpoint = (first + last) // 2
-        if alist[midpoint] == item:
+        if alist[midpoint] >= lowbound or alist[midpoint] <= upperbound:
             found = True
         else:
             if item < alist[midpoint]:
