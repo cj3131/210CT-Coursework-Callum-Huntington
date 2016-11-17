@@ -15,7 +15,7 @@ class List(object):
             n.next=x
             x.prev=n
             if x.next!=None:
-                x.next.prev=x              
+              x.next.prev=x              
         if self.head==None:
             self.head=self.tail=x
             x.prev=x.next=None
@@ -28,24 +28,35 @@ class List(object):
             values.append(str(n.value))
             n=n.next
         print("List: ",",".join(values))
-    def delete(self,n):
-      n.prev.next = n.next
-      n.next.prev = n.prev
-      n.next = None
-      n.prev = None
+
+    def delete(self,nodeValue):
+        current = self.head
+
+        while current != None:
+            if current.value == nodeValue:
+                if current.prev != None:
+                    current.prev.next = current.next
+                    current.next.prev = current.prev
+                else:
+                    self.head = current.next
+                    current.next.prev = None
+            current = current.next
 
 
-        
+
+          
 if __name__ == '__main__':
     l=List()
 
-    elementone = Node(4)
-    elementtwo = Node(6)
-    elementthree = Node(8)
-    l.insert(None, elementone)
-    l.insert(l.head, elementtwo)
-    l.insert(l.head, elementthree)
-    #print(l.head)
-    #l.insert(l.head, Node(13))
-    l.delete(elementtwo)
+    l.insert(None, Node(4))
+    l.insert(l.head,Node(6))
+    l.insert(l.head,Node(7))
+    l.insert(l.head,Node(8))
+    l.insert(l.head,Node(10))
+    l.insert(l.head,Node(13))
+    l.insert(l.head,Node(15))
+    l.display()
+    l.delete(7)
+    l.display()
+    l.delete(10)
     l.display()

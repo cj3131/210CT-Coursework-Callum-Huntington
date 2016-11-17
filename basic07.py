@@ -1,3 +1,10 @@
+"""
+Write a recursive function (pseudocode and code) to check if
+a number n is prime (hint: check whether n is divisible by
+any number below n).
+"""
+
+
 def isprime(checknum, divisor):
     if divisor == checknum:
         return True

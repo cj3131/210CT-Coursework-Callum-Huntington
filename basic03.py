@@ -1,7 +1,15 @@
-""" First, we check if the given parameter is a square number. If it is not, we can check if the next biggest number is a square number.
-This continues until we reach a square number.
+""" 
+Write the pseudocode for a function which returns the highest perfect square
+which is less or equal to its parameter (a positive integer). Implement this
+in a programming language of your choice.
 
-Checking for a square is done by multiplying two identical integers together, beginning at 1*1 and incrementing from there. """"
+First, we check if the given parameter is a square number. If it is not, we can
+check if the next biggest number is a square number. This continues until we
+reach a square number.
+
+Checking for a square is done by multiplying two identical integers together,
+beginning at 1*1 and incrementing from there.
+"""
 
 checknum = int(input("Enter the parameter, and the highest perfect square beneath it will be returned. "))
 possibleSq = checknum

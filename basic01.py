@@ -1,4 +1,7 @@
 """
+Write a function that randomly shuffles an array of integers and explain
+the rationale behind its implementation. 
+
 a. This algorithm has both defined inputs and outputs. The inputs
 are entered by the user and the integer value only is taken, if
 anything else is entered an error will be thrown. The output will

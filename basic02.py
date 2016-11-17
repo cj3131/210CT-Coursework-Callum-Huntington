@@ -1,3 +1,7 @@
+"""
+Count the number of trailing 0s in a factorial number. 
+"""
+
 def factorial(n):
     if n == 0:
         return 1

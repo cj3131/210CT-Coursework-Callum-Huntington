@@ -1,3 +1,7 @@
+"""
+Write a recursive function (pseudocode and code) that removes
+all vowels from a given string s. Input: "beautiful" Output: "btfl".
+"""
 vowels = ["a","e","i","o","u"]
 newstring = ""
 sentence = input("Enter the string to de-vowel: ")

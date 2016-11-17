@@ -1,3 +1,7 @@
+"""
+Given a sequence of n integer numbers, extract the sub-sequence of
+maximum length which is in ascending order.
+"""
 numlist = [3,4,7,2,9,6,1,9,13,16,18,20,25]
 finallist = []
 templist = []
