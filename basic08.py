@@ -1,6 +1,18 @@
 """
 Write a recursive function (pseudocode and code) that removes
 all vowels from a given string s. Input: "beautiful" Output: "btfl".
+
+Pseudocode:
+
+def REMOVE_VOWELS(original, vowels:
+	if original = "":
+		return
+	else if original[0] in vowels:
+		return REMOVE_VOWELS(original[1:], vowels)
+	return original[0] + REMOVE_VOWELS(original[1:], vowels)
+
+print REMOVE_VOWELS(word, vowelList)
+
 """
 vowels = ["a","e","i","o","u"]
 newstring = ""

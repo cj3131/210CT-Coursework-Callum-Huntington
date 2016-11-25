@@ -1,7 +1,10 @@
 """
 Count the number of trailing 0s in a factorial number. 
+
+Time complexity O(N). The factorial function is called once for each value of n.
 """
 
+#The factorial function itself, returns !n
 def factorial(n):
     if n == 0:
         return 1
