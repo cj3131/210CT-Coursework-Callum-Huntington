@@ -1,17 +1,17 @@
-def MATRIX_ADD(A, B, C):
-	for i <-- 0 to length(A):
-		for j <-- 0 to height(A):
+MATRIX_ADD(A, B)
+	for i <-- 0 to length(A)
+		for j <-- 0 to height(A)
 			C[i][j] <-- A[i][j] + B[i][j]
 
-def MATRIX_SUB(A, B, C):
-	for i <-- 0 to length(A):
-		for j <-- 0 to height(A):
+MATRIX_SUB(A, B)
+	for i <-- 0 to length(A)
+		for j <-- 0 to height(A)
 			C[i][j] <-- A[i][j] - B[i][j]
 
-def MATRIX_MULT(A, B, C):
-	for i <-- 0 to length(A):
-		for j <-- 0 to height(B):
-			for k <-- 0 to length(A):
+MATRIX_MULT(A, B)
+	for i <-- 0 to length(A)
+		for j <-- 0 to height(B)
+			for k <-- 0 to length(A)
 				result <-- result + ( A[k][j] * B[i][k] )
 			C[i][j] <-- result
 
