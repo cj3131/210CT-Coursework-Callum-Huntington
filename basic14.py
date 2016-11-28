@@ -7,9 +7,13 @@ class graph():
     def __init__(self):
         self.nodes = [] 
         self.matrix = []
-        for i in range(0, 9):
+        for i in range(10):
             self.matrix.append([0] * 10)
-        print(self.matrix)
+        print(self.matrix, "\n\n\n")
+
+        #related to DFS
+        self.visited = []
+        self.searchStack = []
 
     def addNode(self, value):
         self.nodes.append(value)
@@ -19,31 +23,37 @@ class graph():
         self.matrix[b][a] = 1
 
     def display(self):
-        print("         0  1  2  3  4")
+        print("         0  1  2  3  4  5  6  7  8  9")
         for i in range (0, len(self.matrix)):
             print(i, "     ", self.matrix[i])
     
     def depthFirstSearch(self, g, node):
-        searchStack = [] # each new node we go to will be added to the stack
-        visited = [] # will contain a list of all the nodes that have been visited
         temp = 0 # will contain the node currently being viewed
+        counter = 0
 
-        searchStack.push(node) # add the current node onto the stack
-        while searchStack != []: # when the stack is empty, all nodes have been visited
-            temp = searchStack.pop() # pop the node currently being viewed into temp
-            if temp not in visited: # if the node currently being viewed is not in the visited list
-                visited.append(temp) # add it to the visited list
-                searchStack.extend(graph[node] - visited)
-                
-                #for all edges, e, from temp, S.push(e.to)
-        return visited 
+        self.searchStack.append(node) # add the current node onto the stack
+        while self.searchStack != []: # when the stack is empty, all nodes have been visited
+            temp = self.searchStack.pop() # pop the node currently being viewed into temp
+            if temp not in self.visited: # if the node currently being viewed is not in the visited list
+                self.visited.append(temp) # add it to the visited list
+                for i in self.matrix[node]:
+                    counter += 1 
+                    if i == 1:
+                        if counter in self.visited:
+                            pass
+                        else:
+                            #GO BACK TO SEARCHSTACK.PUSH
+                            g.depthFirstSearch(g, counter)
+
+        return self.visited
 
 g = graph()
 g.addNode(3)
 g.addNode(2)
 g.addNode(1)
 g.addEdge(1,4)
-#g.addEdge(2,4)
+g.addEdge(2,4)
+g.addEdge(2,3)
 g.display()
 print("\n\n\n")
-g.depthFirstSearch()
+print(g.depthFirstSearch(g, 1))

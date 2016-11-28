@@ -20,6 +20,10 @@ graph():
         for i in range (0, length(matrix)):
             print matrix[i]
 
+ADD_NODE(value)
+
+ADD_EDGE(valueA, valueB)
+
         
 """
 
