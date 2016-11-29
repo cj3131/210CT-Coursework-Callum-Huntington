@@ -7,22 +7,22 @@ the STL LL, or use a simple fixed size array (10 elements would be fine).
 
 Pseudocode:
 
-graph():
-    __init__():
-        nodes <-- []
-        matrix <-- [] * 5
-    addNode(value):
+graph()
+    nodes <-- []
+    matrix <-- [] * 5
+    ADD_NODE(value)
         nodes.append(value)
-    addEdge(a,b):
+    ADD_EDGE(a,b)
         matrix[a][b] <-- 1
         matrix[b][a] <-- 1
-    display():
-        for i in range (0, length(matrix)):
-            print matrix[i]
+        
 
 ADD_NODE(value)
+    nodesList <-- value
 
 ADD_EDGE(valueA, valueB)
+    matrix[valueA][valueB] = 1
+    matrix[valueB][valueA] = 1
 
         
 """
@@ -47,7 +47,10 @@ class graph():
         for i in range (0, len(self.matrix)):
             print(i, "     ", self.matrix[i])
     
-    def depthFirstSearch(self, g, node):
+    def depthFirstSearch(self, node):
+        pass
+
+    def breadthFirstSearch(self, node):
         pass
 
 g = graph()
