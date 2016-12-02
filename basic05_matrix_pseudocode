@@ -1,5 +1,5 @@
 MATRIX_ADD(A, B)
-	for i <-- 0 to length(A)
+	for i <-- 0 to length(A) // Iterate through all the j's, then increment the i node, then iterate the j's again.
 		for j <-- 0 to height(A)
 			C[i][j] <-- A[i][j] + B[i][j]
 
@@ -9,18 +9,24 @@ MATRIX_SUB(A, B)
 			C[i][j] <-- A[i][j] - B[i][j]
 
 MATRIX_MULT(A, B)
-	for i <-- 0 to length(A)
+	if A = int:
+		for i <-- 0 to length(B)
+			B[i] <-- B[i] * A#
+
+	else for i <-- 0 to length(A)
 		for j <-- 0 to height(B)
-			for k <-- 0 to length(A)
+			for k <-- 0 to length(A) //We need k to keep track of how far across/down the matrices we've iterated.
 				result <-- result + ( A[k][j] * B[i][k] )
 			C[i][j] <-- result
 
-//A=B*C –2*(B+C)
 
-A <-- MATRIX_MULT(B, C, A)
-temp <-- MATRIX_ADD(B, C, temp)
-temp <-- temp * 2
-A <-- MATRIX_SUB(A, temp, ans)
-print ans
+Pseudocode for A = B*C – 2*(B+C)
+
+A <-- MATRIX_MULT(B, C)
+temp <-- MATRIX_ADD(B, C)
+temp <-- MATRIX_MULT(2, temp)
+A <-- MATRIX_SUB(A, temp)
+
+print A
 
 Time complexity of O(N^3) as the multiplication function contains two nested for loops.

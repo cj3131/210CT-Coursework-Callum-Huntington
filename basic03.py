@@ -29,7 +29,13 @@ def CHECK_SQUARE(n):
 Time complexity of O(N). The larger N is, the more numbers might need to be checked as squares.
 """
 
-checknum = int(input("Enter the parameter, and the highest perfect square beneath it will be returned. "))
+while True:
+	try:
+		checknum = int(input("Enter the parameter, and the highest perfect square beneath it will be returned. "))
+		break
+	except:
+		print("Invalid input. Enter a positive integer.")
+
 possibleSq = checknum
 counter = 1
 

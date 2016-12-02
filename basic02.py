@@ -4,14 +4,20 @@ Count the number of trailing 0s in a factorial number.
 Time complexity O(N). The factorial function is called once for each value of n.
 """
 
-#The factorial function itself, returns !n
+#The factorial function itself, returns n!
 def factorial(n):
     if n == 0:
         return 1
     else:
         return n * factorial(n-1)
 
-factorialNum = int(input("Enter the value of n: "))
+while True:
+	try:
+		factorialNum = int(input("Enter the value of n: "))
+		break
+	except:
+		print("Invalid input. Enter a positive integer.")
+
 numZeros = 0
 counter = -1
 

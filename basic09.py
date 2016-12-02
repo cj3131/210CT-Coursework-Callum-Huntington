@@ -22,8 +22,7 @@ def binarySearch(alist, lowbound, upperbound):
     found = False
 
     while first <= last and not found:
-        midpoint = (first + last) // 2
-        print("midpoint is ", midpoint)
+        midpoint = (first + last) // 2 # The midpoint will always be the value of the list's middle element's index 
         if alist[midpoint] >= lowbound and alist[midpoint] <= upperbound:
             found = True
         else:
@@ -36,9 +35,21 @@ def binarySearch(alist, lowbound, upperbound):
  
     return found
 
+while True:
+    try:
+        low = int(input("Enter the lower boundary"))
+        break
+    except:
+        print("Invalid input. Enter the lower boundary")
 
-low = int(input("Enter the lower boundary"))
-high = int(input("Enter the upper boundary"))
+while True:
+    try:
+        high = int(input("Enter the upper boundary"))
+        break
+    except:
+        print("Invalid input. Enter the upper boundary")
+
+
 
 
 testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42]

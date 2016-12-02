@@ -15,23 +15,23 @@ print REMOVE_VOWELS(word, vowelList)
 
 """
 vowels = ["a","e","i","o","u"]
-newstring = ""
+newString = ""
 sentence = input("Enter the string to de-vowel: ")
 
 
 
 def removeVowels(originalString, vowelList):
 
-    if not originalString:
-        return "" #originalString
+    if not originalString: #originalString is empty, so we are finished.
+        return ""
     
-    elif originalString[0] in vowelList:
-        return removeVowels(originalString[1:], vowelList)
+    elif originalString[0] in vowelList: # if the first character of the string is a vowel, we will ignore it,
+        return removeVowels(originalString[1:], vowelList) # and continue with the rest of the string
         
-    # so originalString[0] must not be in vowelList:
-    return (originalString[0] + removeVowels(originalString[1:], vowelList))
+    return (originalString[0] + removeVowels(originalString[1:], vowelList)) # The first character is not a vowel,
+                                                                            # so add it to the string to be returned
 
 
 
-newstring = removeVowels(sentence, vowels)
-print(newstring)
+newString = removeVowels(sentence, vowels)
+print(newString)

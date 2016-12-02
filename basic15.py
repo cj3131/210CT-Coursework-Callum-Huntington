@@ -73,11 +73,8 @@ class graph():
         currentNode.tentativeWeight = 0
         visited = []
         while currentNode != destNode:
-            print("here")
             for idx, value in enumerate(self.matrix[currentNode.value]):
                 if value != float("inf"):
-                    print(nodeList[idx].value)
-                    print(currentNode.tentativeWeight, nodeList[idx].tentativeWeight, nodeList[idx].value)
                     if currentNode.tentativeWeight + nodeList[idx].tentativeWeight < nodeList[idx].value:
                         nodeList[idx].tentativeWeight = currentNode.tentativeWeight + nodeList[idx].tentativeWeight
                         nodeList[idx].previous = currentNode
@@ -91,8 +88,6 @@ class graph():
                 elif i not in visited and i.tentativeWeight <= minimum:
                     currentNode = i
                     minimum = i.tentativeWeight
-
-        #prettyvisited = [ ]
 
         return visited
 
