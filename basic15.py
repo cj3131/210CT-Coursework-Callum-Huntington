@@ -1,5 +1,5 @@
 """
-Implement Dijkstra’s algorithm for a weighted graph data structure (you have to update
+Q15: Implement Dijkstra’s algorithm for a weighted graph data structure (you have to update
 your previous data structure so that it can deal with weights).
 """
 class node():
@@ -11,10 +11,10 @@ class node():
 
 class graph():
     def __init__(self):
-        self.nodes = [] 
+        self.nodes = [] #A list of nodes
         self.matrix = []
         for i in range(10):
-            self.matrix.append([float("inf")] * 10)
+            self.matrix.append([float("inf")] * 10) #Setting all nodes to infinity
         
         print("The basic matrix looks like:  \n")
         for i in range (len(self.matrix)):
@@ -44,6 +44,8 @@ class graph():
         while self.searchStack: # when the stack is empty, all nodes have been visited
             node = self.searchStack.pop() # pop the node currently being viewed into node
             if node not in self.depthVisited: # if the node currently being viewed is not in the visited list
+                with open("depthVisited.txt", "a") as file:
+                    file.write(str(node))
                 self.depthVisited.append(node) # add it to the visited list
                 print("visited via depth first search so far:  ", self.depthVisited)
                 
@@ -60,8 +62,9 @@ class graph():
             node = self.searchQueue.pop(0)
             if node not in self.breadthVisited:
                 self.breadthVisited.append(node)
+                with open("breadthVisited.txt", "a") as file:
+                    file.write(str(node))
                 print("visited via breadth first search so far:  ", self.breadthVisited)
-
                 for idx, value in enumerate(self.matrix[node]):
                     if value != float("inf"):
                         self.searchQueue.append(idx)
@@ -72,9 +75,10 @@ class graph():
     def dijkstra(self, currentNode, destNode, nodeList):
         currentNode.tentativeWeight = 0
         visited = []
-        while currentNode != destNode:
+        while currentNode != destNode: #not yet reached the destination
             for idx, value in enumerate(self.matrix[currentNode.value]):
                 if value != float("inf"):
+                    #if the current path taken is shorter than that of the new nodes weight
                     if currentNode.tentativeWeight + nodeList[idx].tentativeWeight < nodeList[idx].value:
                         nodeList[idx].tentativeWeight = currentNode.tentativeWeight + nodeList[idx].tentativeWeight
                         nodeList[idx].previous = currentNode
@@ -91,14 +95,10 @@ class graph():
 
         return visited
 
-
-
-
-
-
 nodeList = [0]*10
 print(nodeList)
 g = graph()
+
 
 nodeOne = node(1)
 nodeList[1] = nodeOne
@@ -124,9 +124,14 @@ g.addEdge(nodeTwo,nodeThree, 1)
 g.addEdge(nodeSeven,nodeFour, 3)
 g.display()
 print("\n")
+with open ("depthVisited.txt", "w") as file:
+    pass
 g.depthFirstSearch(1)
+with open ("breadthVisited.txt", "w") as file:
+    pass
 g.breadthFirstSearch(1)
 x = g.dijkstra(nodeTwo,nodeFive,nodeList)
+
 
 for i in x:
     print("Node ", i.value, "has tentative weight ", i.tentativeWeight)
