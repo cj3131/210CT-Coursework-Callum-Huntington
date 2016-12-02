@@ -1,6 +1,10 @@
 """
-Based on the Python code or the C++ code provided in class as a starting point,
+Q11: Based on the Python code or the C++ code provided in class as a starting point,
 implement the double linked list node delete function.
+
+
+Every node is given a next and a previous attribute. When deleting a node we need to update the next
+and previous attributes of the neighbouring nodes to point to each other.
 """
 class Node(object):
     def __init__(self, value):
@@ -12,6 +16,7 @@ class List(object):
     def __init__(self):
         self.head=None
         self.tail=None
+    
     def insert(self,n,x):
         #Not actually perfect: how do we prepend to an existing list?
         if n!=None:
@@ -25,6 +30,7 @@ class List(object):
             x.prev=x.next=None
         elif self.tail==n:
             self.tail=x
+    
     def display(self):
         values=[]
         n=self.head
@@ -32,6 +38,7 @@ class List(object):
             values.append(str(n.value))
             n=n.next
         print("List: ",",".join(values))
+
 
     # starting from the beginning of the list, iterate through until we get to the node to be deleted
     def delete(self,nodeValue):
@@ -51,9 +58,6 @@ class List(object):
                     current.next.prev = None
             current = current.next
 
-
-
-          
 if __name__ == '__main__':
     l=List()
 
