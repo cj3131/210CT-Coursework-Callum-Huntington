@@ -1,6 +1,14 @@
 """
-Given a sequence of n integer numbers, extract the sub-sequence of
+Q10: Given a sequence of n integer numbers, extract the sub-sequence of
 maximum length which is in ascending order.
+
+This program terminates when the entire list has been iterated through.
+
+The only valid input is a list of integers, positive or negative.
+
+The longest sequence is found by comparing each element to it's next. If the next element is greater,
+add it to a temporary list. If it is smaller, start a new temporary list. If the temporary list grows
+longer than the current best list, replace the best list.
 """
 numList = [3,4,7,2,9,6,1,9,13,16,18,20,25]
 finalList = []
@@ -19,6 +27,5 @@ for i in numList:
     #if the sequence is broken, start a new potential sequence. 
     if i < tempList[-1]:
         tempList = []
-
 
 print("The best sequence is ",  finalList, " of length ", bestSeqLength)
